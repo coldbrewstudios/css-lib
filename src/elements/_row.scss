@@ -1,0 +1,19 @@
+
+.row{
+    // margin-top: -8px; // to offset the cols spacing
+    // margin-bottom: -8px; // might look better without these
+}
+
+.row:not([align]){
+    align: center;
+    align: middle;
+}
+
+.row[align*="middle"]{
+    align-items: center;
+    text-align: left;
+}
+.row[align*="center"]{
+    align-items: center;
+    text-align: center;
+}

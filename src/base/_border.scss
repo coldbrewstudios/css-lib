@@ -1,0 +1,47 @@
+
+
+/*  border
+    <div border="4px solid gray-4"
+    <div border="bottom 4px solid gray-4"
+*/
+
+
+/*  border width
+    <div border="4px"
+*/
+@each $size in $border-widths {
+    [border*="#{$size}"]{
+        border-width: #{$size};
+    }   
+}
+
+/*  border side: none | top | bottom | left | right 
+    <div border="4px dotted blue-2"
+    <div border="top 4px dotted blue-2"
+*/
+$border-sides: top, bottom, left, right;
+@each $side1 in $border-sides {
+    [border*="#{$side1}"]{
+        @each $side2 in $border-sides {
+            @if $side1 != $side2 {
+                border-#{$side2}-width: 0px;
+            }
+        }
+    }
+}
+
+/*  border style: dashed | dotted | solid
+    <div border="top 4px dotted blue-2"
+*/
+$border-styles: dashed, dotted, solid;
+@each $style in $border-styles {
+    [border*="#{$style}"]{
+        border-style: #{$style};
+    }
+}
+
+/* border radius
+*/
+[round]{
+    border-radius: 25px;
+}

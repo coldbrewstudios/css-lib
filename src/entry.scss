@@ -1,0 +1,205 @@
+
+/*      EXPIREMENTAL
+==================*/
+// colon symboolises change:
+// :md="mt-1" <- a change will happen at md breakpoint
+// {prop}:hover="" <- a change will happen on hover
+// {prop}:{state}="" <- a change will happen
+
+// ignore this for now
+$app: (
+    attributes: (
+        size: (
+            1: 15px,
+            2: 18px,
+            3: 20px,
+        ),
+        spacing: (
+            unit: 4px,
+            max-count: 10
+        )
+    )
+);
+$app: (
+    size: ( // creates [size="1"]
+        1: 15px,
+        2: 18px,
+        3: 20px,
+    ),
+    box-shadow: (
+        up: (
+            1: 1px solid gray
+        )
+    )
+);
+
+// styling from parents down.
+// usefull for templates and kitchen sink
+a\:color\:blue-1{
+    color: blue;
+}
+/* ^^^^^ this is usedul top down styling:
+<div a:color:blue-1 a:color:hover:blue-2>
+    <h1>
+    <p>
+    <a>
+    <a>
+</div>
+*/
+
+// responsive spacers
+// calc(0.725vmax * 8 / 12)
+[spacing="mt-1"],
+[spacing\:md="mt-1"],
+[\:md="mt-1"],
+[mt-1], // always
+[mt\:xs-1], // xs down
+[mt\:sm-1], // sm down
+[mt\:md-1], // md down
+[mt\:lg-1]{ // lg down
+    margin-top: calc(0.725vmax * 4 / 12);
+}
+//OR
+[mt="1"]{
+    margin-top: 0.25vmax;
+}
+
+// END OF EXPERIMENTAL
+
+
+
+/*      IMPORTS
+==================*/
+// the stuff this project needs
+@import './functions.scss';
+@import './colors.scss';
+
+/*      SPACING
+==================*/
+// for margin and spacing: m-{0 to max}, p-{0 to max}
+$spacing-unit:  4px;
+$spacing-max:   10;
+
+/*      TEXT
+==================*/
+
+$expertSans:       ExpertSans, Arial, Helvetica sans-serif;
+$verdana:      Verdana, Arial, Helvetica, sans-serif;
+$roboto:       'Roboto';
+$ubuntu:       'Ubuntu';
+$font-awesome:    'Font Awesome 5 Free';
+
+$body-font:         $ubuntu;
+$body-color:        color(black,2);
+$body-size:         15px;
+$body-line-height:  1.3;
+$heading-font:      inherit;
+$link-font:         inherit;
+
+
+// box shadoow
+// options:
+    // shadow:up=1 | shadow:down=4 | shadow=1
+$shadows: (
+    up: (
+        1: 0px -2px 6px rgba(0,0,0,0.14)
+    ),
+    down: (
+        1: 1px 1px 3px rgba(0,0,0,0.14)
+    ),
+);
+      
+// borders
+$border-widths: 1px, 2px, 3px, 4px;
+
+
+/*      WEIGHTS
+==================*/
+//  set your weights
+$font-weights: (
+    1: 300,
+    2: 400,
+    3: 600
+);
+
+
+/*      <H1> <H2> ...
+==================*/
+//  set your weights
+$h: (
+    defaults: (
+        line-height: 1.4,
+        color: black,
+        font-weight: 600
+    ),
+    1: (
+        font-size: 47px,
+        line-height: 1.6        
+    )
+);
+
+@each $property, $object in $h{
+
+}
+
+$heading-default-color: color(black, 2);
+$h-font-weight: 600;
+$hSizes: (
+    1: 47px,
+    2: 32px,
+    3: 26px,
+    4: 20px,
+    5: 16px,
+    6: 13px,
+);
+
+// text 
+//
+/*      TEXT
+==================*/
+$p-line-height: inherit;
+$p-sizes: (
+    1: 15px,
+    2: 17px,
+    3: 19px,
+);
+
+mt4 {
+    margin-top: 4px;
+}
+
+// breakpoints
+//
+$breakpoints: (
+  // small phone: iPhone 5 (320px)
+  xs: 0px,
+  // phone: iPhone 8 (375px) / iPhone plus (414px)
+  sm: 576px,
+  // tablet: iPad (768px) / Samsung Galaxy (800px)
+  md: 768px,
+  // tablet: iPad portait (1024px) / other portable devices / old square screens
+  lg: 992px,
+  // desktop: Anything since 2015
+  xl: 1200px
+);
+
+// container
+//
+$container-padding: 2.8vmax 3.6vmax;
+$container-widths:  (
+    xs: 100%,
+    sm: calc(100% - 12vmax),
+    md: 720px,
+    lg: 960px,
+    xl: 1100px
+);
+
+
+// browser
+@import "./browser/browser.scss";
+
+// components
+@import "./elements/components.scss";
+
+// base
+@import "./base/base.scss";

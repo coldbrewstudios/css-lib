@@ -1,0 +1,47 @@
+@mixin make-states($config){
+  $attribute: map-get($config, "attribute");
+  $variance: map-get($config, "variance");
+  $styles: map-get($config, "styles");
+  [#{$attribute}="#{$variance}"],
+  [#{$attribute}\:hover="#{$variance}"]:hover:not(:active),
+  [#{$attribute}\:active="#{$variance}"]:active,
+  [#{$attribute}\:focus="#{$variance}"]:focus{
+      @each $style, $value in $styles{
+          #{$style}: $value;
+      }
+  }
+}
+
+@each $name, $hexes in $colors {
+  @if type-of($hexes) == 'map' {
+      @each $number, $hex in $hexes {
+          @include make-states((
+              attribute: "border",
+              variance: $number,
+              styles: (
+                  border: 1px solid $hex
+              )
+          ));
+      }
+  } @else {
+  }
+}
+
+// border="1"
+// border:color="coral-1"
+$border: (
+  1: 1px solid,
+  2: 2px solid,
+  3: 3px solid
+);
+
+$border-sides: top, bottom, left, right;
+$border-widths: 1px, 2px, 3px, 4px;
+// not that simple for border
+@include make-states((
+  attribute: "border",
+  variance: "coral-2",
+  styles: (
+      border: 1px solid coral
+  )
+));

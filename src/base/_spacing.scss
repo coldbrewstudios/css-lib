@@ -1,0 +1,67 @@
+$increment: 1;
+$increment-size: $spacing-unit;
+$increment-cap: $spacing-max;
+
+/*      margin
+        <div mt-4></div>
+ */
+
+ mt4{
+   display: block;
+ }
+@mixin margin-classes($increment-size, $increment-cap) {
+  @for $i from 0 through $increment-cap {
+
+  [m-#{$i}] { margin: $increment-size * $i !important; }
+  mt-4, [mt-#{ $i}] { margin-top: $increment-size * $i; }
+  [mr-#{ $i}] { margin-right: $increment-size * $i; }
+  [mb-#{ $i}] { margin-bottom: $increment-size * $i; }
+  [ml-#{ $i}] { margin-left: $increment-size * $i; }
+  [mlr-#{ $i * $increment}] { margin-left: $increment-size * $i; margin-right: $increment-size * $i; }
+  [mtb-#{ $i * $increment}] { margin-top: $increment-size * $i; margin-bottom: $increment-size * $i; }
+  }
+}
+
+[mt-a]{
+  margin-top: auto !important;
+}
+[mb-a]{
+  margin-bottom: auto !important;
+}
+[ml-a]{
+  margin-left: auto !important;
+}
+[mr-a]{
+  margin-right: auto !important;
+}
+
+/*      padding 
+        <div pt-4></div>
+*/
+@mixin padding-classes($increment-size, $increment-cap) {
+  @for $i from 0 through $increment-cap {
+  [p-#{$i * $increment}] { padding: $increment-size * $i !important; }
+  [pt-#{ $i * $increment}] { padding-top: $increment-size * $i; }
+  [pr-#{ $i * $increment}] { padding-right: $increment-size * $i; }
+  [pb-#{ $i * $increment}] { padding-bottom: $increment-size * $i; }
+  [pl-#{ $i * $increment}] { padding-left: $increment-size * $i; }
+  [plr-#{ $i * $increment}] { padding-left: $increment-size * $i; padding-right: $increment-size * $i; }
+  [ptb-#{ $i * $increment}] { padding-top: $increment-size * $i; padding-bottom: $increment-size * $i; }
+  }
+}
+
+@include padding-classes($increment-size, $increment-cap);
+@include margin-classes($increment-size, $increment-cap);
+
+// @include media-breakpoint-up(lg) {
+//   @include padding-classes(4px);
+//   @include margin-classes(4px);
+// }
+// @include media-breakpoint-between(sm, md) {
+//   @include padding-classes(3px);
+//   @include margin-classes(3px);
+// }
+// @include media-breakpoint-down(sm) {
+//   @include padding-classes(2px);
+//   @include margin-classes(2px);
+// }

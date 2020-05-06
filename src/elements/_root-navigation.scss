@@ -1,0 +1,18 @@
+
+.site-top-nav{
+    font-size: 12px;
+    
+    .active:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -6px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 4px;
+        border-color: transparent transparent #fff;
+    }
+}

@@ -1,0 +1,50 @@
+// config
+$tab-height: 48px;
+$tab-color: color(blue, 1);
+$tab-active-color: color(blue, 2);
+$tab-background: color(gray, 6);
+$tab-active-background: white;
+$tab-border-color: color(gray, 4);
+$tab-border-radius: 4px;
+$tab-space-between: 16px;
+
+// Using aria tags for styling to enforce the use of aria tags
+
+/* tab wrapper */
+[role="tablist"]{
+  align-items: stretch;
+  border-bottom: 1px solid $tab-border-color;
+}
+
+/* tab */
+[role="tab"]{
+  height: $tab-height;
+  color: $tab-color;
+  background-color: $tab-background;
+  font-weight: 400;
+  border-radius: 0;
+  border-top-left-radius: $tab-border-radius;
+  border-top-right-radius: $tab-border-radius;
+  border: 1px solid $tab-border-color;
+  border-bottom: 0;
+  flex: 1;
+}
+[role="tab"]:not(:first-of-type){
+  margin-left: $tab-space-between;
+}
+[role="tab"][aria-selected="true"]{
+  background-color: $tab-active-background;
+  color: $tab-active-color;
+}
+
+/* panels */
+[role="tabpanel"][hidden]{
+  display: none;
+}
+
+[role="tabpanel"]{
+  padding: 15px;
+  border: 1px solid $tab-border-color;
+  border-top: 0;
+  min-height: 120px;
+}

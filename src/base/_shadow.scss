@@ -1,0 +1,26 @@
+
+// Shadows
+@mixin shadow-attribute($direction, $number, $shadow) {
+  [shadow\:#{$direction}="#{$number}"]{
+      box-shadow: $shadow !important;
+  }
+}
+
+@each $direction, $set in $shadows{
+  @each $number, $shadow in $set{
+    @include shadow-attribute($direction, $number, $shadow);
+  }
+}
+
+// [shadow\:hover]:hover:active{
+//   box-shadow: none;
+// }
+
+// [shadow="1"],
+// [shadow\:hover="1"]:hover{
+//   box-shadow: 1px 1px 3px rgba(0,0,0,0.14);
+// }
+// [shadow="2"],
+// [shadow\:hover="2"]:hover{
+//   box-shadow: 0 0 15px rgba(0,0,0,.14);
+// }

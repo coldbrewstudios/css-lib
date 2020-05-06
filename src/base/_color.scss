@@ -1,0 +1,56 @@
+// COLORS
+@mixin background-color-class($name, $hex) {
+    [background\:#{$name}],
+    [background="#{$name}"],
+    [background\:hover="#{$name}"]:hover:not(:active),
+    [background\:active="#{$name}"]:active,
+    [background\:focus="#{$name}"]:focus{
+        background-color: $hex !important;
+    }
+}
+@mixin color-class($name, $hex) {
+    [color\:#{$name}],
+    [color="#{$name}"],
+    [color\:hover="#{$name}"]:hover:not(:active),
+    [color\:active="#{$name}"]:active,
+    [color\:focus="#{$name}"]:focus{
+        color: $hex !important;
+    }
+}
+@mixin border-class($name, $hex) {
+    [border*="#{$name}"]{
+        border-color: $hex !important;
+    }
+}
+
+
+@each $name, $hexes in $colors {
+    @if type-of($hexes) == 'map' {
+        @each $number, $hex in $hexes {
+            @include background-color-class(#{$name}-#{$number}, $hex);
+            @include color-class(#{$name}-#{$number}, $hex);
+            @include border-class(#{$name}-#{$number}, $hex);
+        }
+    } @else {
+        @include background-color-class($name, $hexes);
+        @include color-class($name, $hexes);
+        @include border-class($name, $hexes);
+    }
+}
+
+
+// states (Work in progress)
+//
+// a[color="white"]:hover{
+//     color: darken($color: white, $amount: 15%) !important;
+// }
+
+// [color="white"]:active {
+//     background-color: #0073a842 !important;
+// }
+// [color="blue-1"]:active {
+//     background-color: #0073a842 !important;
+// }
+// [color="blue-2"]:active {
+//     background-color: #0073a842;
+// }

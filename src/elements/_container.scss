@@ -1,0 +1,31 @@
+$component-tag: '.container';
+
+#{$component-tag}{
+    width: 100%;
+    padding: $container-padding;
+    margin: 0 auto;
+}
+
+// loop through breakpoints
+@each $breakpoint-category, $breakpoint-pixels in $breakpoints {
+    // get relevant container size
+    $container-size: map-get($map: $container-widths, $key: $breakpoint-category);
+
+    // get next breakpoint size
+    $next-breakpoint-category: _function-get-next-key($key: $breakpoint-category, $map: $breakpoints);
+    $next-breakpoint-pixels: map-get($breakpoints, $next-breakpoint-category);
+
+    // check if next breakpoint exists, if not max out
+    @if $next-breakpoint-pixels == null{
+        $next-breakpoint-pixels: 6000px;
+    }
+    
+    // use breakpoints to set media
+    @media (min-width: $breakpoint-pixels) and (max-width: $next-breakpoint-pixels) {
+        // apply container size
+        #{$component-tag}{
+            max-width: $container-size;
+        }
+    }
+
+}

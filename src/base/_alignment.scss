@@ -1,0 +1,27 @@
+
+[center]:not([flex]){
+    text-align: center;
+}
+
+[align\:left],
+[align="left"] {
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+}
+
+[align\:center],
+[align="center"]{
+    justify-content: center;
+    text-align: center;
+}
+
+[align\:end],
+[align="end"] {
+    justify-content: flex-end;
+    text-align: right;
+}
+[align\:right],
+[align="right"] {
+    text-align: right;
+}

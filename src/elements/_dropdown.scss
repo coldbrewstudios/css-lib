@@ -1,0 +1,43 @@
+
+[role="dropdown"]{
+    position: relative;
+    z-index: 50;
+}
+
+button:active + [role="listbox"],
+button:focus + [role="listbox"]{
+    opacity: 1;
+    visibility: visible;
+}
+
+button:not(:focus) + [role="listbox"]{
+    opacity: 0;
+    visibility: hidden;
+}
+
+[role="listbox"]{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    transition: none;
+    position: absolute;
+    margin-top: -2px; 
+    top: 100%; 
+    right: 0;
+    min-width: 100%;
+    max-width: 90vw;
+    border: 1px solid color(gray,3);
+    color: color(blue, 2);
+    background: white;
+}
+[role="option"]{
+    border-radius: 0;
+}
+[role="option"]:hover{
+    color: color(blue, 1);
+    background-color: color(blue, 5);
+}
+
+[role="listbox"] > *{
+    text-align: left;
+    width: 100%;
+}

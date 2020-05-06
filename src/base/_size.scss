@@ -1,0 +1,28 @@
+
+
+/*  sizes
+    <a size="1" 
+    <button size="1" 
+    <small size="1" 
+    <span size="1" 
+    <p size="1" 
+    
+    */
+ @each $size, $px in $p-sizes {
+     [size="#{$size}"]{
+         font-size: $px;
+     }
+ }
+ 
+
+ // defaults
+button:not([size]){
+    font-size: map-get($p-sizes, 2);
+    // font-size: 1em; // under scrutiny, could be fine but might cause inconsistent button sizes
+}
+  
+[size] > button:not([size]){
+    // font-size: map-get($textSizes, 2);
+    font-size: 1em; // under scrutiny, could be find but might cause inconsistent button sizes
+}
+ 
