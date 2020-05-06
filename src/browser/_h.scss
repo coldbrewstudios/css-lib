@@ -1,0 +1,35 @@
+/*      h tags
+        <h1 size="3"></h1>
+ */
+@each $size, $px in $hSizes {
+    h#{$size}:not([size]),
+    h1[size="#{$size}"],
+    h2[size="#{$size}"],
+    h3[size="#{$size}"],
+    h4[size="#{$size}"],
+    h5[size="#{$size}"],
+    h6[size="#{$size}"]{
+        font-size: $px;
+    }  
+}
+
+// defaults
+h1, h2, h3, h4, h5, h6{
+    font-weight: 300;
+    margin: 0;
+    color: inherit;
+    // max-width: 26em; // in cases like cards where the buttons are H tags this makes them too small
+    font-family: $heading-font;
+    display: inline-block; // needed for centering h tags by parent elements
+    width: 100%;
+}
+
+// risky, but lets see how it goes
+// *:not([color]) > h1:not([color]),
+// *:not([color]) > h2:not([color]),
+// *:not([color]) > h3:not([color]),
+// *:not([color]) > h4:not([color]),
+// *:not([color]) > h5:not([color]),
+// *:not([color]) > h6:not([color]){
+//     color: $heading-default-color;
+// }

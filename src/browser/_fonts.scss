@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'ExpertSans';
+    src: url('assets/fonts/expertsans-regular-webfont.eot');
+    src: url('assets/fonts/expertsans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/expertsans-regular-webfont.woff') format('woff'),
+         url('assets/fonts/expertsans-regular-webfont.ttf') format('truetype'),
+         url('assets/fonts/expertsans-regular-webfont.svg#expert_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ExpertSans';
+    src: url('assets/fonts/expertsans-light-webfont.eot');
+    src: url('assets/fonts/expertsans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/expertsans-light-webfont.woff') format('woff'),
+         url('assets/fonts/expertsans-light-webfont.ttf') format('truetype'),
+         url('assets/fonts/expertsans-light-webfont.svg#expert_sanslight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ExpertSans';
+    src: url('assets/fonts/expertsans-lightitalic-webfont.eot');
+    src: url('assets/fonts/expertsans-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/expertsans-lightitalic-webfont.woff') format('woff'),
+         url('assets/fonts/expertsans-lightitalic-webfont.ttf') format('truetype'),
+         url('assets/fonts/expertsans-lightitalic-webfont.svg#expert_sanslightitalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    font-weight: 400;
+    font-style: normal;
+}

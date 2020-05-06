@@ -1,0 +1,43 @@
+
+nav {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+
+nav > a{
+    padding: 0.5em 1em;
+    white-space: nowrap;
+}
+
+nav[nooverflow]{
+    overflow: visible;
+    flex-wrap: wrap;
+}
+
+
+nav:not([stacked]){
+    flex-direction: row;
+}
+nav:not([align]){
+    align-items: center;
+}
+
+nav[stacked],
+nav[list]{
+    flex-direction: column;
+}
+
+nav[separator="."] > a{
+    position: relative;
+    padding-left: 0;
+}
+nav[separator="."] > a:not(:last-child):after{
+    content: ".";
+    position: relative;
+    bottom: .25em;
+    margin-left: 1em;
+    display: inline-block;
+    color: inherit;
+}

@@ -1,0 +1,21 @@
+
+/*
+ thinking about moving this to index
+*/
+
+p{
+    display: inline-block;
+    width: 100%;
+    max-width: 37em;
+    line-height: $p-line-height;
+    margin: 0;
+}
+p:not([color]){
+    color: inherit;
+}
+p:not([size]){
+    font-size: map-get($p-sizes, 2);
+}
+p:not([weight]){
+    font-weight: map-get($font-weights, 2);
+}

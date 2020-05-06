@@ -1,0 +1,34 @@
+
+// defaults
+
+* {
+  // transition: all 250ms linear; 
+  overflow: auto;
+  box-sizing: border-box;
+  border-radius: 0.7vmax;
+}
+
+*:active,
+*:focus {
+  outline: none !important;
+}
+
+
+// keep in alphabetic order
+@import './a';
+@import './body';
+@import './button';
+@import './form';
+@import './h';
+@import './hr';
+@import './i';
+@import './img';
+@import './input';
+@import './nav';
+@import './p';
+@import './select';
+@import './small';
+@import './span';
+@import './table';
+@import './textarea';
+@import './ul';

@@ -1,0 +1,14 @@
+i {
+    display: inline-block;
+    color: inherit;
+    min-width: 1em; // under probabtion
+    min-height: 1em; // to stop jumping when icons load in
+}
+
+* > i:last-child{ // also targets empty a's which is incorrect
+    margin-left: 7px;
+}
+
+button > i {
+    margin: 0 !important;
+}

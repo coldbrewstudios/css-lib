@@ -1,0 +1,37 @@
+img{
+    width: 100%;
+    max-width: 100%;
+    transform: translate3d(0px, 0px, 0px); // fixes blurry images when they are on an off pixel
+}
+
+
+// <img class="lazyloaded" data-sizes="auto" />
+// .lazyload         : not loaded yet (gets removed when image is loaded)
+// .lazyautosizes    : if data-sizes="auto" is set on img tag
+// .ls-is-cached     : if image has been cached
+// .lazyloaded       : image has been loaded
+
+$loaderLight: #fafafa;
+$loaderDark: #f4f4f4;
+
+.lazyload,
+.lazyloading {
+    background: color(blue, 3);
+    background: linear-gradient(to right, $loaderLight 8%, $loaderDark 38%, $loaderLight 54%);
+    background-size: 1000px 640px;
+
+	animation-name: placeHolderShimmer;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 1.8s;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}

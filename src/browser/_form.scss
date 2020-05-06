@@ -1,0 +1,57 @@
+
+$input-height: 36px;
+
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+form > div{
+    display: inherit;
+    flex-direction: inherit;
+    flex-wrap: inherit;
+    align-items: inherit;
+    min-width: 100%;
+}
+
+form label {
+    flex: 1 auto;
+    margin-right: 24px;
+    min-width: 160px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+form input,
+form select,
+form textarea,
+form > div {
+    flex: 1 1 calc(100% - 195px);
+    min-height: $input-height;
+    min-width: 280px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+form > div > input {
+    flex: 1 1 100%;
+}
+
+form [role="alert"]{
+    color: color(red, 1);
+}
+
+*:valid + [role="alert"]{
+    display: none;
+}
+
+/* States */
+*:valid{
+    // color: color(green, 1); //effects normal non form selects
+}
+
+*:out-of-range{
+    // color: color(blue, 1);
+}

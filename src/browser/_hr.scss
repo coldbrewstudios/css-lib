@@ -1,0 +1,18 @@
+hr {
+    border: 0;
+    min-height: 1px;
+    margin: 0;
+    display: block;
+}
+
+hr[vertical]{
+    min-width: 1px; //for flex
+    max-width: 1px;
+    min-height: 1em; //general character use
+    height: 100%;
+    display: inline-block;
+}
+
+hr:not([background]){
+    background: color(gray, 4);
+}

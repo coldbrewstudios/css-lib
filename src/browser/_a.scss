@@ -1,0 +1,38 @@
+// links
+//
+$link-color: color(coral, 1);
+$link-hover-color: color(brick, 1);
+$link-active-color: default;
+$link-visited-color: default;
+
+
+a {
+    cursor: pointer;
+    display: inline-block;
+    font-size: inherit; // size needs to be inherit, never hardcode the default size
+    text-decoration: none;
+    color: $link-color;
+    font-family: $link-font;
+    // vertical-align: middle; // messes with <a> in paragraphs. dont do this.
+}
+
+a:hover{
+    color: $link-hover-color;
+}
+a:active{
+    color: $link-active-color;
+}
+a:visited{
+    color: $link-visited-color;
+}
+
+// nested a link with color on a parent wrapper
+[color] > a{
+    color: inherit;
+}
+
+a > i {
+    font-size: 85%;
+    margin-left: 0.5em;
+    vertical-align: baseline;
+}

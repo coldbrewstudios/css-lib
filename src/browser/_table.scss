@@ -1,0 +1,47 @@
+
+
+// trying this out
+$table-thead: (
+ border-bottom: 1px solid color(black,2),
+ font-weight: 600,
+ text-transform: capitalize
+);
+
+$table-tr: (
+    border-bottom: 1px solid color(black,2),
+);
+
+$table-td: (
+  padding: 12px 12px,
+  min-width: 150px
+);
+
+@mixin loop-css-map($map) {
+  @each $property, $style in $map{
+    #{$property}: #{$style};
+  }
+}
+
+// 
+table{
+  width: auto;
+  border-collapse: collapse;
+}
+table thead{
+  @include loop-css-map($table-thead);
+}
+
+table td{
+  @include loop-css-map($table-td);
+  
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+table tr{
+  @include loop-css-map($table-tr);
+}

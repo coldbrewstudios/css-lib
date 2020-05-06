@@ -1,0 +1,13 @@
+
+$select-background: white;
+$select-padding: 8px;
+$select-border-color: color(gray, 4);
+
+select{
+  font-size: inherit;
+  padding: $select-padding;
+  background-color: $select-background;
+  border-color: $select-border-color;
+  cursor: pointer;
+}
+

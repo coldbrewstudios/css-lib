@@ -1,0 +1,33 @@
+/*  map get next
+
+*/
+@function _function-get-next-key($key, $map) {
+  // get current key from list
+  $the-list: map-keys($map);
+
+  //find index of current value and add 1
+  $the-index: ( index( $the-list, $key) ) + 1;
+
+  // get value from list with new index
+  $new-value :  none;
+  @if $the-index <= length($the-list){
+    $new-value : nth($the-list, $the-index);
+  }
+
+  @return $new-value;
+}
+
+/*  color fetcher
+    color: color(blue, 2);
+    background: color(green, 1);
+*/
+@function color($color, $variance: "") {
+  $colorGroup: map-get($colors, $color);
+  @if (type-of($colorGroup) == 'map') {
+    $colorHex: map-get($map: $colorGroup, $key: $variance);
+    @return $colorHex;
+  }
+  @return $colorGroup;
+}
+
+

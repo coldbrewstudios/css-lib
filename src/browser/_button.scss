@@ -1,0 +1,40 @@
+
+$button-font-weight:    400;
+$button-padding:        0.5em 1em; // ems so it works with size attribute
+$button-border-radius:  5px;
+
+// defaults
+button,
+a[role="button"],
+a[theme] {
+  display: inline-block;
+  
+  padding: $button-padding;
+
+  font-family: inherit;
+  font-weight: $button-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  color: inherit;
+  
+  border: 1px solid transparent;
+  border-radius: $button-border-radius;
+  
+  background-color: transparent;
+}
+
+// defaults
+//
+
+// this is tricky because you then cant style the button
+// button:not([theme]){
+//   background-color: transparent;
+// }
